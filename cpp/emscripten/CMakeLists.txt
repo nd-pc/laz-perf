@@ -12,6 +12,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s INITIAL_MEMORY=262144")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s TOTAL_STACK=65536")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s ALLOW_MEMORY_GROWTH=1")
 
+if (DEVELOPING)
+  message(STATUS "Development (non-optimized, readable) output has been enabled")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+endif()  
+
 if (NOT WASM EQUAL 0)
   set(WASM 1)
 endif()
